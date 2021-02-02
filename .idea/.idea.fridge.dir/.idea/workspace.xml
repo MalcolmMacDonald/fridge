@@ -20,7 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d6313c8-f39d-472d-8702-4e4682754347" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/OrbitControls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/three.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.fridge.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fridge.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GLTFLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/GLTFLoader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/three.js" beforeDir="false" afterPath="$PROJECT_DIR$/three.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +41,11 @@
       <list>
         <option value="$PROJECT_DIR$/main.css" />
         <option value="$PROJECT_DIR$/styles.css" />
-        <option value="$PROJECT_DIR$/scene.js" />
+        <option value="$PROJECT_DIR$/three.js" />
+        <option value="$PROJECT_DIR$/GLTFLoader.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/OrbitControls.js" />
+        <option value="$PROJECT_DIR$/scene.js" />
       </list>
     </option>
   </component>
@@ -65,13 +74,14 @@
       <option name="presentableId" value="Default" />
       <updated>1611202783118</updated>
       <workItem from="1611202791418" duration="4763000" />
+      <workItem from="1612241117172" duration="8523000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -83,6 +93,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

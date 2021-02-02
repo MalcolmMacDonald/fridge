@@ -1,58 +1,78 @@
 ﻿
-import * as THREE from 'three';
-import { GLTFLoader } from 'GLTFLoader.js';
+import {OrbitControls} from "./OrbitControls.js";
 
-let scene, camera, renderer,hlight,directionalLight,light,light2,light3,light4;
+import { GLTFLoader } from '/GLTFLoader.js';
+
+const scene = new THREE.Scene();
+
+let  hlight,directionalLight,light,light2,light3,light4;
+
+const  renderer = new THREE.WebGLRenderer({antialias:true});
+document.body.appendChild(renderer.domElement);
+
+const camera =  new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
+
+const controls = new OrbitControls(camera,renderer.domElement);
+controls.addEventListener('change', render);
+
+async function getFridgeImages(){
+    var token = this.environment.BOT_TOKEN;
+    var header = "Bot " + token;
+    var authorization = {'Authorization':header};
+    var urlString = 'https://discord.com/api' + '/channels/' + '689278471801012286' + '/messages';
+    let response = await fetch (urlString,Headers=authorization);
+    let data = await response.json();
+    return data;
+}
+
+getFridgeImages();
 
 function init() {
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xdddddd);
+    scene.background = new THREE.Color(0x36393f);
 
-    camera = new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
-    camera.rotation.y = 45/180*Math.PI;
-    camera.position.x = 800;
-    camera.position.y = 100;
-    camera.position.z = 1000;
 
-    //controls = new THREE.OrbitControls(camera);
-    //controls.addEventListener('change', renderer);
+    camera.position.set(0,0,3);
+    camera.lookAt(new THREE.Vector3(0,0,0));
 
-    hlight = new THREE.AmbientLight (0x404040,100);
+    hlight = new THREE.AmbientLight (0x021670,0.75);
     scene.add(hlight);
 
-    directionalLight = new THREE.DirectionalLight(0xffffff,100);
-    directionalLight.position.set(0,1,0);
+    directionalLight = new THREE.DirectionalLight(0xffffff,0.75);
+    directionalLight.position.set(10,10,10);
+    directionalLight.lookAt(new THREE.Vector3(0,0,0));
+
     directionalLight.castShadow = true;
     scene.add(directionalLight);
-    light = new THREE.PointLight(0xc4c4c4,10);
-    light.position.set(0,300,500);
+    light = new THREE.PointLight(0xc4c4c4,0.75);
+    light.castShadow = true;
+    light.position.set(-1,0,4);
     scene.add(light);
-    light2 = new THREE.PointLight(0xc4c4c4,10);
+    /*light2 = new THREE.PointLight(0xc4c4c4,5);
     light2.position.set(500,100,0);
     scene.add(light2);
-    light3 = new THREE.PointLight(0xc4c4c4,10);
+    light3 = new THREE.PointLight(0xc4c4c4,5);
     light3.position.set(0,100,-500);
     scene.add(light3);
-    light4 = new THREE.PointLight(0xc4c4c4,10);
+    light4 = new THREE.PointLight(0xc4c4c4,5);
     light4.position.set(-500,300,500);
-    scene.add(light4);
+    scene.add(light4);*/
 
-    renderer = new THREE.WebGLRenderer({antialias:true});
     renderer.setSize(window.innerWidth,window.innerHeight);
-    document.body.appendChild(renderer.domElement);
 
     let loader = new GLTFLoader();
-    loader.load('Astronaut.gltf', function(gltf){
-        let car = gltf.scene.children[0];
-        car.scale.set(0.5,0.5,0.5);
+    loader.load('./models/kitchenFridgeLarge' +
+        '.glb', function(gltf){
+        gltf.scene.position.set(-0.25,-0.5,0);
+        //let car = gltf.scene.children[0];
+       // car.scale.set(2,2,2);
         scene.add(gltf.scene);
-        animate();
+        render();
     });
     // animate();
 }
-function animate() {
+function render() {
     renderer.render(scene,camera);
-    requestAnimationFrame(animate);
+    //requestAnimationFrame(render);
 }
 init();
