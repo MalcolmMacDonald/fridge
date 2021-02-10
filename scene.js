@@ -1,7 +1,7 @@
 ﻿
 import {OrbitControls} from "./OrbitControls.js";
 
-import { GLTFLoader } from '/GLTFLoader.js';
+import { GLTFLoader } from './GLTFLoader.js';
 
 const scene = new THREE.Scene();
 
