@@ -1,4 +1,3 @@
-declare var showdown any;
 import {
 	AnimationClip,
 	Bone,
