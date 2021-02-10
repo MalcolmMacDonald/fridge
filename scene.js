@@ -15,8 +15,9 @@ const camera =  new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHei
 const controls = new OrbitControls(camera,renderer.domElement);
 controls.addEventListener('change', render);
 
+
 async function getFridgeImages(){
-    var token = this.environment.BOT_TOKEN;
+    var token = window.location.href.split("?l=")[1];
     var header = "Bot " + token;
     var authorization = {'Authorization':header};
     var urlString = 'https://discord.com/api' + '/channels/' + '689278471801012286' + '/messages';
