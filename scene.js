@@ -88,20 +88,19 @@ async function GetMaterial(url) {
 
 function LoadDiscordImage(url) {
     return new Promise(success => {
+
+        var headers = new Headers();
+        headers.append('Access-Control-Allow-Origin', '*');
+    
         var request = new Request(url, {
-            Headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type':'document',
-                'Guard':'cors'
-            },
-            referrerPolicy:'no-referrer',
-            credentials: 'same-origin',
-            mode: 'cors',
-            cache:'no-cache'
+            headers:headers,
+            /* referrerPolicy: 'no-referrer',
+             credentials: 'same-origin',
+             mode: 'cors',
+             cache: 'no-cache'*/
         });
-            
-        
-        
+
+
         fetch(request).then(result => {
             success(result);
         });
