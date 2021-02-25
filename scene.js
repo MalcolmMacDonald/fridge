@@ -106,7 +106,7 @@ function LoadDiscordImage(url) {
              cache: 'no-cache'
         });*/
         
-        fetch('http://fridgeserver.herokuapp.com/').then(result => {
+        fetch('https://fridgeserver.herokuapp.com/').then(result => {
             console.log(result);
 
             success(result);
