@@ -74,13 +74,16 @@ async function AddImage(url) {
 async function GetMaterial(url) {
 
     return new Promise(success => {
+        LoadDiscordImage(url).then(image => {
             var loader = new THREE.TextureLoader();
-            loader.load(url, texture => {
+            loader.load(image, texture => {
                 var mat = new THREE.MeshBasicMaterial({map:texture,side: THREE.DoubleSide});
                 success(mat);
 
             });
         });
+
+    });
 }
 function LoadDiscordImage(url){
     return new Promise(success =>{
