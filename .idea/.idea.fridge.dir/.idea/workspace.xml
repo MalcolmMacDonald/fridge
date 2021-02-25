@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d6313c8-f39d-472d-8702-4e4682754347" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/OrbitControls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/three.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.fridge.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.fridge.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GLTFLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/GLTFLoader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/three.js" beforeDir="false" afterPath="$PROJECT_DIR$/three.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +30,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../adventure-ages/Assets/_/Scripts/Hacks/HacksPresenter.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
