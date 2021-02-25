@@ -89,21 +89,24 @@ async function GetMaterial(url) {
 function LoadDiscordImage(url) {
     return new Promise(success => {
 
+       /* var thisOrigin = '127.0.0.1:8887';
         var headers = new Headers();
         //headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Access-Control-Allow-Origin', 'https://malcolmmacdonald.github.io');
-        headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        
+        headers.append('Access-Control-Request-Headers','access-control-request-headers: access-control-allow-headers,access-control-allow-origin');
+        headers.append("Access-Control-Request-Method", "GET");
+        headers.append('Origin',thisOrigin);
         //headers.append('Access-Control-Allow-Origin', '*');
 
         var request = new Request(url, {
             headers:headers,
-          //  method:'OPTIONS'
+            method:'OPTIONS'
             /* referrerPolicy: 'no-referrer',
              credentials: 'same-origin',
-             cache: 'no-cache'*/
-        });
+             cache: 'no-cache'
+        });*/
         
-        fetch(request).then(result => {
+        fetch('http://fridgeserver.herokuapp.com/').then(result => {
             console.log(result);
 
             success(result);
