@@ -77,7 +77,7 @@ async function GetMaterial(url) {
         LoadDiscordImage(url).then(image => {
             var loader = new THREE.TextureLoader();
             loader.load(image, texture => {
-                var mat = new THREE.MeshBasicMaterial({map:texture,side: THREE.DoubleSide});
+                var mat = new THREE.MeshBasicMaterial({map: texture, side: THREE.DoubleSide});
                 success(mat);
 
             });
@@ -85,12 +85,27 @@ async function GetMaterial(url) {
 
     });
 }
-function LoadDiscordImage(url){
-    return new Promise(success =>{
-        fetch(url,{Headers:{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'*'},mode:'cors'}).then(result =>{
-           success(result); 
+
+function LoadDiscordImage(url) {
+    return new Promise(success => {
+        var request = new Request(url, {
+            Headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type':'document',
+                'Guard':'cors'
+            },
+            referrerPolicy:'no-referrer',
+            credentials: 'same-origin',
+            mode: 'cors',
+            cache:'no-cache'
         });
+            
         
+        
+        fetch(request).then(result => {
+            success(result);
+        });
+
     });
 }
 
