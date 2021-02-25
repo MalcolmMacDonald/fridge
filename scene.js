@@ -90,21 +90,24 @@ function LoadDiscordImage(url) {
     return new Promise(success => {
 
         var headers = new Headers();
-        headers.append('Access-Control-Allow-Origin', '*');
-    
+        //headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Origin', 'https://malcolmmacdonald.github.io');
+        headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        //headers.append('Access-Control-Allow-Origin', '*');
+
         var request = new Request(url, {
             headers:headers,
+          //  method:'OPTIONS'
             /* referrerPolicy: 'no-referrer',
              credentials: 'same-origin',
-             mode: 'cors',
              cache: 'no-cache'*/
         });
-
-
+        
         fetch(request).then(result => {
+            console.log(result);
+
             success(result);
         });
-
     });
 }
 
