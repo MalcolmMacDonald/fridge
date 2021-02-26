@@ -16,7 +16,6 @@ document.body.appendChild(renderer.domElement);
 var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.001, 5000);
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.addEventListener('change', UpdateSize);
 controls.addEventListener('change', render);
 
 const imagePositions = [
@@ -46,7 +45,7 @@ const imagePositions = [
     [0.07, 0.23],
     [0.1, 0.35],
     [-0.09, 0.23],
-    [-0.14, 0.35]
+    [-0.14, 0.34]
 ]
 
 
@@ -55,8 +54,8 @@ function init() {
     scene.background = new THREE.Color(0x36393f);
 
 
-    camera.position.set(0, -0.2, 0.5);
-    camera.lookAt(new THREE.Vector3(0, -0.2, 0));
+    camera.position.set(-0.5, -0.25, 1.75);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     // hlight = new THREE.AmbientLight (0x021670,0.75);
     // scene.add(hlight);
@@ -80,7 +79,7 @@ function init() {
     light4 = new THREE.PointLight(0xc4c4c4,5);
     light4.position.set(-500,300,500);
     scene.add(light4);*/
-UpdateSize();
+    UpdateSize();
 
     let loader = new GLTFLoader();
     loader.load('./models/kitchenFridgeLarge' +
@@ -108,7 +107,7 @@ async function AddPictures() {
 
     for (var i = allPictures.length-1; i >= 0; i--) {
 
-        await AddImage(allPictures[i], i);
+        AddImage(allPictures[i], i);
     }
 }
 
@@ -139,7 +138,7 @@ async function GetMaterial(url) {
     return new Promise(success => {
         var loader = new THREE.TextureLoader();
         loader.load(url, texture => {
-            var mat = new THREE.MeshBasicMaterial({map: texture, side: THREE.DoubleSide});
+            var mat = new THREE.MeshBasicMaterial({map: texture, side: THREE.FrontSide});
             success(mat);
 
         });
