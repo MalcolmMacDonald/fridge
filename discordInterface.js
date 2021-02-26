@@ -9,7 +9,8 @@ export async function GetFridgeImageFileNames(BOT_TOKEN) {
                 var fridgeChannel = client.channels.get('790124464254877706');
 
                 fridgeChannel.fetchMessages().then(messages => {
-                    var imageAttachments = messages.filter(message => message.attachments.array().length > 0).map(message => message.attachments.map(attachment => attachment.url)[0]);
+                    var imageAttachments = messages.filter(message => message.attachments.array().length > 0).map(message => message.attachments.map(attachment => attachment.url));
+                    imageAttachments = flatten(imageAttachments);
                     imageAttachments = imageAttachments.map(url => url.split('/').slice(4).join('/'));
                     console.log(imageAttachments);
                     resolve(imageAttachments);
@@ -18,4 +19,9 @@ export async function GetFridgeImageFileNames(BOT_TOKEN) {
         }
     );
 
+}
+function flatten(arr) {
+    return arr.reduce(function (flat, toFlatten) {
+        return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+    }, []);
 }
