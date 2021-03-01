@@ -46,8 +46,8 @@ const imagePositions = [
     [0.07, 0.23],
     [0.1, 0.35],
     [-0.09, 0.23],
-    [-0.14, 0.34]
-]
+    [-0.14, 0.34],
+].reverse();
 
 
 function init() {
@@ -105,15 +105,15 @@ function UpdateSize(){
 async function AddPictures() {
 
     var allPictures = await GetFridgeImageFileNames(new URLSearchParams(window.location.search).get('key'));
+    var offset = imagePositions.length - allPictures.length;
+    for (var i = 0; i < allPictures.length; i++) {
 
-    for (var i = allPictures.length-1; i >= 0; i--) {
-
-        AddImage(allPictures[i], i);
+        AddImage(allPictures[i], i + offset);
     }
 }
 
 async function AddImage(imageURL, index) {
-    if (index >= imagePositions.length) {
+    if(index >= imagePositions.length){
         return;
     }
 
@@ -124,7 +124,7 @@ async function AddImage(imageURL, index) {
     var aspectRatio = size[0]/size[1];//: size[1]/size[0];
 
     var plane = new THREE.Mesh(geometry, material);
-    var currentPosition = imagePositions[imagePositions.length - (index + 1)];
+    var currentPosition = imagePositions[index];
     var scale = currentPosition[2] || 1;
     scale *= 0.075;
     plane.scale.set(aspectRatio * scale,  scale, 1);
